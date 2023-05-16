@@ -17,4 +17,7 @@ Pair programming is a software development technique where two programmes will w
 What is Python?
 Python is a computer programming software that is versatile enough that you can use it for web development, data science and automation. It was also used to create Netflix's recommendation algorythim.
 
+What is a fixed mindset?
+A fixed mindset is where you believe the intelligence and other qualites are unchangeable. That what you have/are will never change. The knowledge or skills you currently hold will remain the same.
+
 
