@@ -1,19 +1,21 @@
+# Imports needed to run the game
 import pygame
 import random
+
 # initializing pygame
 pygame.init()
 
-# Colors
-white = (255, 255, 255) # rgb format
+# Colours that will be used in RGB format
+white = (255, 255, 255) 
 red = (255, 0, 0)
 black = (0, 0, 0)
 
-# Creating window
+# Creating the window for the game
 screen_width = 900
 screen_height = 600
 gameWindow = pygame.display.set_mode((screen_width, screen_height))
 
-# Game Title
+# This is displaying the Game Title
 pygame.display.set_caption("Coders Home")
 pygame.display.update()
 clock = pygame.time.Clock()
@@ -28,7 +30,7 @@ def plot_snake(gameWindow, color, snk_list, snake_size):
     for x,y in snk_list:
         pygame.draw.rect(gameWindow, color, [x, y, snake_size, snake_size])
 
-# Game Loop
+# Creating the Game Loop
 def gameloop():
     exit_game = False
     game_over = False
@@ -38,7 +40,7 @@ def gameloop():
     velocity_y = 0
     snk_list = []
     snk_length = 1
-
+# Creating the foos
     food_x = random.randint(20, screen_width-20)
     food_y = random.randint(60, screen_height -20)
     score = 0
@@ -63,7 +65,7 @@ def gameloop():
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     exit_game = True
-
+# Initialising movement
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RIGHT:
                         velocity_x = init_velocity
@@ -89,7 +91,7 @@ def gameloop():
                 food_x = random.randint(20, screen_width - 30)
                 food_y = random.randint(60, screen_height - 30)
                 snk_length +=5
-
+# Creating score
             gameWindow.fill(white)
             text_screen("Score: " + str(score * 10), red, 5, 5)
             pygame.draw.rect(gameWindow, red, [food_x, food_y, snake_size, snake_size])
@@ -105,7 +107,7 @@ def gameloop():
 
             if head in snk_list[:-1]:
                 game_over = True
-
+# End of the game
             if snake_x<0 or snake_x>screen_width-20 or snake_y<50 or snake_y>screen_height-20:
                 game_over = True
             plot_snake(gameWindow, black, snk_list, snake_size)
